@@ -1,0 +1,18 @@
+<div class="modal">
+  <ion-header-bar>
+    <h1 class="title">Conflic detected</h1>
+  </ion-header-bar>
+  <ion-content>
+    <h5>Server version</h5>
+    <pre><code>
+{{ data }}
+    </code></pre>
+    <hr>
+    <h5>Your version</h5>
+    <pre><code>
+{{ model }}
+    </code></pre>
+    <button class="button button-full button-calm" ng-click="override()">Use mine</button>
+    <button class="button button-full button-positive" ng-click="cancel()">Server version</button>
+  </ion-content>
+</div>

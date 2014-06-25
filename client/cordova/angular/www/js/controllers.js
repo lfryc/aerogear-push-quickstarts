@@ -49,7 +49,7 @@ angular.module('quickstart.controllers', [])
   };
 })
 
-.controller('ContactCtrl', function ($scope, $stateParams, contacts, $location) {
+.controller('ContactCtrl', function ($scope, $stateParams, contacts, $location, $ionicModal) {
   if ($stateParams.id) {
     contacts.get({
       id: $stateParams.id
@@ -58,14 +58,40 @@ angular.module('quickstart.controllers', [])
     });
   }
   $scope.save = function (contact) {
+    console.log(contact);
+    var self = this;
     if ($stateParams.id) {
-      contacts.update(contact, onSuccess);
+      contacts.update(contact, onSuccess, onFailure);
     } else {
       contacts.save(contact, onSuccess);
     }
 
     function onSuccess() {
       $location.url('/app/contacts');
+    }
+    
+    function onFailure(e) {
+      if (e.status === 409) {
+        $ionicModal.fromTemplateUrl('templates/diff.html', {
+          scope: $scope,
+          animation: 'slide-in-up'
+        }).then(function(modal) {
+          $scope.data = JSON.stringify(e.data, null, 4);
+          $scope.model = angular.toJson(contact, 4);
+          modal.show();
+          
+          $scope.cancel = function() {
+            modal.hide();
+            $location.url('/app/contacts/');
+          }
+
+          $scope.override = function() {
+            console.log(contact);
+            contact.version = e.data.version;
+            contacts.update(contact, self.onSuccess, self.onFailure);
+          }          
+        });
+      }
     }
   };
 })
