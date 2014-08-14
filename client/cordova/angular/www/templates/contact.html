@@ -1,6 +1,6 @@
-<ion-view title="Add Contact">
+<ion-view title="{{ model.id == undefined ? 'Add' : 'Edit' }} Contact">
   <ion-nav-buttons side="left">
-    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    <button menu-toggle="left" class="button button-icon icon ion-navicon" ng-show="model.id == undefined"></button>
   </ion-nav-buttons>
   <ion-content class="has-header">
     <form novalidate name="form">
