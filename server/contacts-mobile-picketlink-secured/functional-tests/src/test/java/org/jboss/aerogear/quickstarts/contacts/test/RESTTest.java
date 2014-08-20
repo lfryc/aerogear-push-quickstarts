@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.as.quickstarts.contacts.test;
+package org.jboss.aerogear.quickstarts.contacts.test;
 
 import static com.jayway.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.is;
