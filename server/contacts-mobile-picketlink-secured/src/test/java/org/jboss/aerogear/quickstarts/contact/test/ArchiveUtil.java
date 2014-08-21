@@ -44,7 +44,7 @@ public class ArchiveUtil {
             "org.apache.deltaspike.modules:deltaspike-security-module-api:0.5",
             "org.apache.deltaspike.modules:deltaspike-security-module-impl:0.5",
             "org.codehaus.jackson:jackson-mapper-asl:1.9.9",
-            "org.jboss.aerogear:unifiedpush-java-client:0.7.0"
+            "org.jboss.aerogear:unifiedpush-java-client:1.0.0"
         ).withTransitivity().asFile();
 
         WebArchive archive = ShrinkWrap

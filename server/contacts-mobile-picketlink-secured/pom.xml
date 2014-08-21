@@ -46,7 +46,7 @@
 
         <!-- JBoss dependency versions -->
 
-        <version.unifiedpush.java.client>0.9.0</version.unifiedpush.java.client>
+        <version.unifiedpush.java.client>1.0.0</version.unifiedpush.java.client>
 
         <version.jboss.maven.plugin>7.4.Final</version.jboss.maven.plugin>
 
