@@ -44,6 +44,7 @@ public class ArchiveUtil {
             "org.apache.deltaspike.modules:deltaspike-security-module-api:0.5",
             "org.apache.deltaspike.modules:deltaspike-security-module-impl:0.5",
             "org.codehaus.jackson:jackson-mapper-asl:1.9.9",
+            "com.google.code.gson:gson:2.3",
             "org.jboss.aerogear:unifiedpush-java-client:1.0.0"
         ).withTransitivity().asFile();
 
@@ -52,6 +53,7 @@ public class ArchiveUtil {
             .addPackages(true, "org.jboss.aerogear.quickstarts.contacts")
             .addAsLibraries(libs)
             .addAsResource("META-INF/test-persistence.xml", "META-INF/persistence.xml")
+            .addAsResource("META-INF/quickstarts-config.json", "META-INF/quickstarts-config.json")
             .addAsWebInfResource("arquillian-ds.xml")
             .addAsWebInfResource(ArchiveUtil.class.getResource("/beans.xml"), "beans.xml")
             .addAsWebInfResource(ArchiveUtil.class.getResource("/web.xml"), "web.xml");
